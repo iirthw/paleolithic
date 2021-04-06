@@ -7,11 +7,12 @@ project(paleolithic_coding)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 #set(HEADER_FILES src/public/foo.h)
-#set(IMPL_FILES src/main.cpp src/impl/foo.cpp)
+set(IMPL_FILES src/main.cpp)
 set(SOURCE_FILES ${HEADER_FILES} ${IMPL_FILES})
 
-add_executable(${CMAKE_PROJECT_NAME} STATIC ${SOURCE_FILES})
-target_include_directories(${CMAKE_PROJECT_NAME} 
+add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
+target_include_directories(
+    ${CMAKE_PROJECT_NAME} 
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/public
 )

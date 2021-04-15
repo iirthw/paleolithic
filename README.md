@@ -7,3 +7,5 @@
 The purpose of this repo is to host a simple project for a personal use,
 where some naive implementations of different algorithms can be made, tested and played with.
 So the overall goal is to have fun implementing algos and to to understand certain algos in a better way (see Richard Feynman's quote above).
+
+The name "paleolithic" was chosen for the purpose of self irony.

@@ -1,5 +1,14 @@
-set(HEADER_FILES public/dyn_prog/fibo.h)
-set(IMPL_FILES impl/dyn_prog/fibo.cc)
+set(
+    HEADER_FILES
+    public/bitmanip/bitmanip.h
+    public/dyn_prog/fibo.h
+    )
+
+set(
+    IMPL_FILES
+    impl/bitmanip/bitmanip.cc
+    impl/dyn_prog/fibo.cc
+    )
 set(SOURCE_FILES ${HEADER_FILES} ${IMPL_FILES})
 
 add_library(${CMAKE_PROJECT_NAME} STATIC ${SOURCE_FILES})

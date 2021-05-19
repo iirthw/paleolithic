@@ -17,5 +17,5 @@ class TestBitmanip : public ::testing::Test
 
 TEST_F(TestBitmanip, SimpleIsPower2)
 {
-    ASSERT_TRUE(bitmanip::isPower2(2));
+    ASSERT_TRUE(bitmanip::is_power2<int>(2));
 }

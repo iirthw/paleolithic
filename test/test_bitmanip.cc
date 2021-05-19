@@ -15,7 +15,39 @@ class TestBitmanip : public ::testing::Test
         // void TearDown() override {}
 };
 
-TEST_F(TestBitmanip, SimpleIsPower2)
+TEST_F(TestBitmanip, simple_power2_true)
 {
     ASSERT_TRUE(bitmanip::is_power2<int>(2));
+}
+
+TEST_F(TestBitmanip, advanced_power2_true)
+{
+    const int n = 15;
+    int value = 2;
+    for (int i = 2; i < n; ++i)
+    {
+        value *= 2;
+        EXPECT_TRUE(bitmanip::is_power2<int>(value));
+    }
+}
+
+TEST_F(TestBitmanip, corner_case)
+{
+    ASSERT_FALSE(bitmanip::is_power2<int>(0));
+}
+
+TEST_F(TestBitmanip, simple_power2_false)
+{
+    ASSERT_FALSE(bitmanip::is_power2<int>(1));
+}
+
+TEST_F(TestBitmanip, advanced_power2_false)
+{
+    const int n = 15;
+    int value = 2;
+    for (int i = 0; i < n; ++i)
+    {
+        value *= 2;
+        EXPECT_FALSE(bitmanip::is_power2<int>(value - 1));
+    }
 }

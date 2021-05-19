@@ -5,6 +5,6 @@ namespace bitmanip
     template <typename T>
     static bool is_power2(const T& x)
     {
-        return false;
+        return x && !(x & (x - 1));
     }
 } // namespace bitmanip

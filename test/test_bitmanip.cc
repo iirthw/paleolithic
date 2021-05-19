@@ -36,9 +36,9 @@ TEST_F(TestBitmanip, corner_case)
     ASSERT_FALSE(bitmanip::is_power2<int>(0));
 }
 
-TEST_F(TestBitmanip, simple_power2_false)
+TEST_F(TestBitmanip, edge_power2_true)
 {
-    ASSERT_FALSE(bitmanip::is_power2<int>(1));
+    ASSERT_TRUE(bitmanip::is_power2<int>(1));
 }
 
 TEST_F(TestBitmanip, advanced_power2_false)

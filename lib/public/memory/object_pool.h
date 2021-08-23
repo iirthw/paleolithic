@@ -18,6 +18,10 @@ namespace memory
 		ObejctPool() : mCapacity(min_capacity) {}
 		ObjectPool(std::size_t capacity) 
 		: mCapacity(capacity > min_capacity ? capacity : min_capacity) {}
+
+		// ---------------------------------------------------------------------
+		// public interface
+		size_t capacity() const { return mCapacity; }
 		
 	private:
 

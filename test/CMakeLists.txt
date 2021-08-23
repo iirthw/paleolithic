@@ -2,7 +2,7 @@
 include(${PROJECT_SOURCE_DIR}/cmake/download_gtest.cmake)
 
 project(RunUnitTests)
-set(SOURCE_FILES test_bitmanip.cc test_dyn_prog.cc)
+set(SOURCE_FILES test_bitmanip.cc test_dyn_prog.cc test_object_pool.cc)
 add_executable(${PROJECT_NAME} main.cc ${SOURCE_FILES})
 # set VS startup project
 set_property(

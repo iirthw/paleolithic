@@ -7,10 +7,10 @@ namespace memory
 	{
 	public:
 
-		ObjectPool(std::size_t maxCapacity) : mMaxCapacity(maxCapacity) {}
+		ObjectPool(std::size_t capacity) : mCapacity(capacity) {}
 		
 	private:
 
-		std::size_t mMaxCapacity;
+		std::size_t mCapacity;
 	}; // class ObjectPool
 } // namespace memory

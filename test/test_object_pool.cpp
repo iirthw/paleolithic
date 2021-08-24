@@ -16,4 +16,12 @@ TEST_F(TestObjectPool, test_ctor_noarg)
 {
     memory::ObjectPool<TestStruct> pool;
     ASSERT_TRUE(pool.capacity(), 1000);
+
+TEST_F(TestObjectPool, test_getObject)
+{
+    memory::ObjectPool<TestStruct> pool;
+    auto object = pool.getObject();
+    ASSERT_TRUE(object != nullptr);
+}
+
 }

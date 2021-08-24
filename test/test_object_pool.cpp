@@ -16,6 +16,7 @@ TEST_F(TestObjectPool, test_ctor_noarg)
 {
     memory::ObjectPool<TestStruct> pool;
     ASSERT_TRUE(pool.capacity(), 1000);
+}
 
 TEST_F(TestObjectPool, test_getObject)
 {
@@ -24,4 +25,8 @@ TEST_F(TestObjectPool, test_getObject)
     ASSERT_TRUE(object != nullptr);
 }
 
+TEST_F(TestObjectPool, test_empty)
+{
+    memory::ObjectPool<TestStruct> pool;
+    ASSERT_FALSE(pool.empty());
 }

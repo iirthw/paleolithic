@@ -23,6 +23,10 @@ namespace memory
 		// public interface
 		size_t capacity() const { return mCapacity; }
 
+		bool empty() const noexcept {
+			// TODO: provide impl
+		}
+
 		std::shared_ptr<T> getObject();
 		void releaseObject(std::shared_ptr<T> object);
 		

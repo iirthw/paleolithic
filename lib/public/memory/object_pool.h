@@ -22,6 +22,9 @@ namespace memory
 		// ---------------------------------------------------------------------
 		// public interface
 		size_t capacity() const { return mCapacity; }
+
+		std::shared_ptr<T> getObject();
+		void releaseObject(std::shared_ptr<T> object);
 		
 	private:
 

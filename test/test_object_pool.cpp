@@ -21,21 +21,40 @@ TEST_F(TestObjectPool, test_ctor_noarg)
     ASSERT_TRUE(pool.capacity(), 1000);
 }
 
-TEST_F(TestObjectPool, test_getObject)
+TEST_F(TestObjectPool, test_dtor)
 {
-    memory::ObjectPool<TestStruct> pool;
+    {
+        memory::ObjectPool<TestStruct> pool;
+    } // exercise dtor
+    ASSERT_TRUE(true);
+}
+
+TEST_F(TestObjectPool, test_getObject_int)
+{
+    memory::ObjectPool<int> pool;
     auto object = pool.getObject();
     ASSERT_TRUE(object != nullptr);
 }
 
-TEST_F(TestObjectPool, test_getObject_primitive)
+TEST_F(TestObjectPool, test_getObject_float)
 {
-    // TODO: provide impl
+    memory::ObjectPool<float> pool;
+    auto object = pool.getObject();
+    ASSERT_TRUE(object != nullptr);
 }
 
-TEST_F(TestObjectPool, test_getObject_POD)
+TEST_F(TestObjectPool, test_getObject_char)
 {
-    // TODO: provide impl
+    memory::ObjectPool<char> pool;
+    auto object = pool.getObject();
+    ASSERT_TRUE(object != nullptr);
+}
+
+TEST_F(TestObjectPool, test_getObject_pod)
+{
+    memory::ObjectPool<TestStruct> pool;
+    auto object = pool.getObject();
+    ASSERT_TRUE(object != nullptr);
 }
 
 TEST_F(TestObjectPool, target_available)

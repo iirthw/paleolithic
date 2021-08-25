@@ -2,6 +2,11 @@
 
 #include <memory>
 
+/*
+	TODO:
+	* Make default pool size 1000;
+*/
+
 namespace memory 
 {
 	/**
@@ -48,6 +53,6 @@ namespace memory
 
 		std::size_t mCapacity;
 
-		static constexpr size_t min_capacity = 1000;
+		static constexpr size_t min_capacity = 10;
 	}; // class ObjectPool
 } // namespace memory

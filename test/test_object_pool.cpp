@@ -9,7 +9,10 @@ class TestObjectPool : public ::testing::Test
 struct TestStruct
 {
     int id;
-    std::string hash;
+    float score;
+
+    TestStruct(int id = 0, float score = 0.0f) {}
+    TestStruct(int id, score) : id(id), score(score) {}
 }; // struct TestStruct
 
 TEST_F(TestObjectPool, test_ctor_noarg)

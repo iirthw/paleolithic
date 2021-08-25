@@ -10,7 +10,6 @@ set(
     IMPL_FILES
     impl/bitmanip/bitmanip.cc
     impl/dyn_prog/fibo.cc
-    impl/memory/object_pool.cc
     impl/thread/threadpool.cc
     )
 set(SOURCE_FILES ${HEADER_FILES} ${IMPL_FILES})

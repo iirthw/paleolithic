@@ -25,6 +25,16 @@ TEST_F(TestObjectPool, test_getObject)
     ASSERT_TRUE(object != nullptr);
 }
 
+TEST_F(TestObjectPool, test_getObject_primitive)
+{
+    // TODO: provide impl
+}
+
+TEST_F(TestObjectPool, test_getObject_POD)
+{
+    // TODO: provide impl
+}
+
 TEST_F(TestObjectPool, target_available)
 {
     memory::ObjectPool<TestStruct> pool;
@@ -37,4 +47,29 @@ TEST_F(TestObjectPool, test_empty)
 {
     memory::ObjectPool<TestStruct> pool;
     ASSERT_FALSE(pool.empty());
+}
+
+TEST_F(TestObjectPool, test_relaseObject)
+{
+    // TODO: provide impl
+}
+
+TEST_F(TestObjectPool, test_noDefaultConstructible)
+{
+    // TODO: provide impl
+}
+
+TEST_F(TestObjectPool, test_noAvailable)
+{
+    // TODO: provide impl
+}
+
+TEST_F(TestObjectPool, test_releaseNull)
+{
+    // TODO: provide impl
+}
+
+TEST_F(TestObjectPool, test_releaseForeignObject)
+{
+    // TODO: provide impl
 }

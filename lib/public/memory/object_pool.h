@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 namespace memory 
 {
 	/**
@@ -15,7 +17,7 @@ namespace memory
 
 		// ---------------------------------------------------------------------
 		// ctors
-		ObejctPool() : mCapacity(min_capacity) {}
+		ObjectPool() : mCapacity(min_capacity) {}
 		ObjectPool(std::size_t capacity) 
 		: mCapacity(capacity > min_capacity ? capacity : min_capacity) {}
 
@@ -25,20 +27,27 @@ namespace memory
 
 		bool empty() const noexcept {
 			// TODO: provide impl
+			return true;
 		}
 
 		size_t available() const noexcept
 		{
 			// TODO: provide impl
+			return 0;
 		}
 
-		std::shared_ptr<T> getObject();
-		void releaseObject(std::shared_ptr<T> object);
+		std::shared_ptr<T> getObject() {
+			// TODO: provide impl
+			return nullptr;
+		}
+		void releaseObject(std::shared_ptr<T> object) {
+			// TODO: provide impl
+		}
 		
 	private:
 
 		std::size_t mCapacity;
 
-		static size_t min_capacity = 1000;
+		static constexpr size_t min_capacity = 1000;
 	}; // class ObjectPool
 } // namespace memory

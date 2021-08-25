@@ -11,14 +11,13 @@ struct TestStruct
     int id;
     float score;
 
-    TestStruct(int id = 0, float score = 0.0f) {}
-    TestStruct(int id, score) : id(id), score(score) {}
+    TestStruct(int id = 0, float score = 0.0f) : id(id), score(score) {}
 }; // struct TestStruct
 
 TEST_F(TestObjectPool, test_ctor_noarg)
 {
     memory::ObjectPool<TestStruct> pool;
-    ASSERT_TRUE(pool.capacity(), 1000);
+    ASSERT_EQ(pool.capacity(), 1000);
 }
 
 TEST_F(TestObjectPool, test_dtor)
@@ -60,7 +59,7 @@ TEST_F(TestObjectPool, test_getObject_pod)
 TEST_F(TestObjectPool, target_available)
 {
     memory::ObjectPool<TestStruct> pool;
-    const auto numAvailable = pool.available();
+    const auto available = pool.available();
     const auto capacity = pool.capacity();
     ASSERT_EQ(capacity, available);
 }

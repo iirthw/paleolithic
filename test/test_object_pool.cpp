@@ -25,6 +25,14 @@ TEST_F(TestObjectPool, test_getObject)
     ASSERT_TRUE(object != nullptr);
 }
 
+TEST_F(TestObjectPool, target_available)
+{
+    memory::ObjectPool<TestStruct> pool;
+    const auto numAvailable = pool.available();
+    const auto capacity = pool.capacity();
+    ASSERT_EQ(capacity, available);
+}
+
 TEST_F(TestObjectPool, test_empty)
 {
     memory::ObjectPool<TestStruct> pool;

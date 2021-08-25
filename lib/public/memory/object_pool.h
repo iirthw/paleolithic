@@ -27,6 +27,11 @@ namespace memory
 			// TODO: provide impl
 		}
 
+		size_t available() const noexcept
+		{
+			// TODO: provide impl
+		}
+
 		std::shared_ptr<T> getObject();
 		void releaseObject(std::shared_ptr<T> object);
 		

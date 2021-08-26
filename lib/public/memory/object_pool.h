@@ -21,14 +21,21 @@ namespace memory
 	public:
 
 		// ---------------------------------------------------------------------
-		// ctors
-		ObjectPool() : mCapacity(min_capacity) {}
-		ObjectPool(std::size_t capacity) 
-		: mCapacity(capacity > min_capacity ? capacity : min_capacity) {}
+		// ctor, dtor
+		
+		ObjectPool(std::size_t capacity = min_capacity) {
+			const auto buffer = 
+				capacity > min_capacity ? capacity : min_capacity;
+			mBuffer = std::make_shared<std::vector<T>>(capacity);
+		}
+
+		~ObjectPool() {
+			// noop, mBuffer will destroyed automatically as it is mamaged
+			// by shared_ptr.
+		}
 
 		// ---------------------------------------------------------------------
 		// public interface
-		size_t capacity() const { return mCapacity; }
 
 		bool empty() const noexcept {
 			// TODO: provide impl
@@ -51,8 +58,11 @@ namespace memory
 		
 	private:
 
-		std::size_t mCapacity;
+		std::shared_ptr<std::vector<T>> mBuffer;
+		char mAvailabilityMask[maskSizeBytes];
+		short mInUseCounter;
 
 		static constexpr size_t min_capacity = 10;
+		static constexpr size_t maskSizeBytes = 2;
 	}; // class ObjectPool
 } // namespace memory

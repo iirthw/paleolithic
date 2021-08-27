@@ -9,6 +9,19 @@
 
 namespace memory 
 {
+    /**
+     * Compute ceiling of log2 as a constexpr.
+     */
+    template <typename T>
+    constexpr T log2ceil(T val) {
+        T computedLog = 0;
+        while (val > 0) {
+            val >>= 1;
+            ++computedLog;
+        }
+        return computedLog;
+    } // log2ceil
+
 	/**
 	 * @brief Object pool data structure;
 	 * 
@@ -21,14 +34,13 @@ namespace memory
 	public:
 
 		// ---------------------------------------------------------------------
-		// ctor, dtor
-		
-		ObjectPool(std::size_t capacity = min_capacity) {
-			const auto buffer = 
-				capacity > min_capacity ? capacity : min_capacity;
-			mBuffer = std::make_shared<std::vector<T>>(capacity);
+        
+		// ctor
+		ObjectPool() {
+			mBuffer = std::make_shared<std::vector<T>>();
 		}
 
+        // dtor
 		~ObjectPool() {
 			// noop, mBuffer will destroyed automatically as it is mamaged
 			// by shared_ptr.
@@ -59,10 +71,5 @@ namespace memory
 	private:
 
 		std::shared_ptr<std::vector<T>> mBuffer;
-		char mAvailabilityMask[maskSizeBytes];
-		short mInUseCounter;
-
-		static constexpr size_t min_capacity = 10;
-		static constexpr size_t maskSizeBytes = 2;
 	}; // class ObjectPool
 } // namespace memory

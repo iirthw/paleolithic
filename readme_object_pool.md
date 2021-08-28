@@ -39,3 +39,7 @@ A common technique to avoid the allocation/deallocation overhead is to create a 
 * Include any tests used to verify the correctness of the pool.
 * You are free to use any C language or library feature from the C99 standard.
 * You are free to use any C++ language or library feature from the C++11 standard.
+
+## Literature:
+*   [Lafferty and Alexandrescu] Modern C++ Design: Generic Programming and Design Patterns Applied 1st Edition, 
+    Chapter 4: Small-Object Allocation, 2001

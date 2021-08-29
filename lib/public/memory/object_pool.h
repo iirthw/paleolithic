@@ -22,6 +22,20 @@ namespace memory
         return computedLog;
     } // log2ceil
 
+    /**
+     * Chunk - a simple POD representation of memory
+     *  blocks in the pool.
+     */
+    struct Chunk {
+    	void init(std::size_t blockSize,
+    			  unsigned char blocks);
+    	void* alloc(std::size_t blockSize);
+    	void dealloc(void* p, std::size blockSize);
+    	unsigned char* data_;
+    	unsigned char firstAvailableBlock_,
+    		blocksAvailable_;
+    };
+
 	/**
 	 * @brief Object pool data structure;
 	 * 

@@ -23,8 +23,13 @@ namespace memory
     } // log2ceil
 
     /**
-     * Chunk - a simple POD representation of memory
-     *  blocks in the pool.
+     * Chunk - a simple POD representation of memory blocks in the pool.
+     * Each object of type Chunk contains and manages a chunk of memory
+     * consisting of an integral number of fixed-size blocks. Chunk contains
+     * logic that allows to allocate and deallocate memory blocks.
+     * 
+     * When there are no more blocks available in the chunk, the allocation
+     * function fails by returning zero.
      */
     struct Chunk {
     	void init(std::size_t blockSize,

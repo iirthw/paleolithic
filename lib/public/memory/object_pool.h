@@ -116,7 +116,7 @@ namespace memory
 	    	unsigned char firstAvailableBlock_,
 	    		blocksAvailable_;
     	}; // struct Chunk
-    };
+    }; // class FixedAllocator
 
 
     /**

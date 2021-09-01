@@ -10,6 +10,20 @@
 
 namespace memory 
 {
+	/*
+		Architecture of object allocator can be summarized as 4 layers:
+		________________________________________________________________________
+		| SmallObject : object-level services.								   |
+		| ---------------------------------------------------------------------|
+		| SmallObjAllocator : allocator of small objects of various sizes.     |
+		| ---------------------------------------------------------------------|
+		| FixedAllocator : allocator of only objects of one given size.        |
+		| ---------------------------------------------------------------------|
+		| Chunk : container of blocks of memory, with fixed upper limit of     |
+		|         number of objects allocated.                                 |
+		|______________________________________________________________________|
+	*/
+	
     /**
      * @biref FixedAllocator aggregates an array of Chunks.
      * Whenever a request for memory comes and all existing Chunks are occupied,

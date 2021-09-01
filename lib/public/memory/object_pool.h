@@ -102,7 +102,7 @@ namespace memory
 
 	    	// Allocate memory for a block inside chunk.
 	    	// (Time complexity - linear)
-	    	void* alloc(std::size_t blockSize) {
+	    	void* allocate(std::size_t blockSize) {
 	    		assert(blockSize > 0;)
 	    		// Implementation idea: fetch the block indexed 
 	    		// by firstAvailableBlock_ and adjust firstAvailableBlock_ 
@@ -115,12 +115,12 @@ namespace memory
 	    		firstAvailableBlock_ = *result;
 	    		--blocksAvailable;
 	    		return result;
-	    	} // alloc
+	    	} // allocate
 
 	    	// Release memory of a block insied chunk.
 	    	// If the wrong pointer is passed - behaviour is undefined.
 	    	// (Time complexity - linear).
-	    	void dealloc(void* block, std::size blockSize) {
+	    	void deallocate(void* block, std::size blockSize) {
 	    		assert(blockSize > 0);
 	    		assert(block >= data_);
 
@@ -143,7 +143,7 @@ namespace memory
 	    			((toRelease - data_) / blockSize));
 
 	    		++blocksAvailable_;
-	    	} // dealloc
+	    	} // deallocate
 
 	    	unsigned char* data_;
 	    	unsigned char firstAvailableBlock_,

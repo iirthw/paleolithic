@@ -23,15 +23,18 @@ namespace memory
 		|         number of objects allocated.                                 |
 		|______________________________________________________________________|
 	*/
-	
+
     /**
-     * @biref FixedAllocator aggregates an array of Chunks.
+     * @biref FixedAllocator allocates and deallocates blocks of fixed size but
+     * it is not limited to chunk's size. Its capacity is limited only by 
+     * available memory.
      * Whenever a request for memory comes and all existing Chunks are occupied,
      * FixedAllocator creates a new Chunk and appends it to the array. Then it
      * forwards the request to the new Chunk.
      */
     class FixedAllocator {
     private:
+
 		/**
      	* Chunk - a simple POD representation of memory blocks in the pool.
      	* Each object of type Chunk contains and manages a chunk of memory
@@ -117,6 +120,17 @@ namespace memory
 	    	unsigned char firstAvailableBlock_,
 	    		blocksAvailable_;
     	}; // struct Chunk
+
+    private:
+    	std::size_t blockSize_;
+    	unsigned char numBlocks_;
+    	typedef std::vector<Chunk> Chunks;
+    	// FixedAllocator aggregates a vector of chunks.
+    	Chunks chunks_;
+    	// Pointer to the last chunk that was used for allocation.
+    	Chunk* allocChunk_;
+    	// Pointer to the last chunk used for deallocation.
+    	Chunk* deallocChunk_;
     }; // class FixedAllocator
 
 

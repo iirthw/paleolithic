@@ -33,6 +33,35 @@ namespace memory
      * forwards the request to the new Chunk.
      */
     class FixedAllocator {
+    public:
+    	void* allocate() {
+    		if (allocChunk_ == 0 || allocChunk_->blocksAvailable_ == 0) {
+    			// No available memory in allocChunk_
+    			// Try to find another chunk via linear search.
+    			for (auto i = chunks_.begin() ;; ++i) {
+    				if (i == chunks_.end()) {
+    					// All filled up => add a new chunk.
+    					chunks_.reserve(chunks_.size() + 1);
+    					Chunk newChunk;
+    					newChunk.init(blockSize_, numBlocks_);
+    					chunks_.push_back(newChunk);
+    					allocChunk_ = &chunks_.back();
+    					deallocChunk_ = &chunks_.back();
+    					break;	
+    				}
+    				if (i->blocksAvailable_ > 0) {
+    					allocChunk_ = &*i;
+    					break;
+    				}
+
+    				assert(allocChunk_ != 0);
+    				assert(allocChunk_->blocksAvailable > 0);
+
+    				return allocChunk_->allocate(blockSize_);
+    			}
+    		}
+    	} // allocate
+
     private:
 
 		/**

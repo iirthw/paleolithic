@@ -11,19 +11,6 @@
 namespace memory 
 {
     /**
-     * Compute ceiling of log2 as a constexpr.
-     */
-    template <typename T>
-    constexpr T log2ceil(T val) {
-        T computedLog = 0;
-        while (val > 0) {
-            val >>= 1;
-            ++computedLog;
-        }
-        return computedLog;
-    } // log2ceil
-
-    /**
      * @biref FixedAllocator aggregates an array of Chunks.
      * Whenever a request for memory comes and all existing Chunks are occupied,
      * FixedAllocator creates a new Chunk and appends it to the array. Then it

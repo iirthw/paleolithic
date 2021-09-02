@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <memory>
+#include <vector>
 
 /*
 	TODO:
@@ -169,6 +170,17 @@ namespace memory
      * it dispatches memory allocation requests to one of its FixedAllocators
      * or to the default operator new if the size requested is too large.
      */
+    class SmallObjectAllocator {
+    	SmallObjectAllocator(std::size_t chunkSize, std::size_t maxObjectSize);
+
+    	void* allocate(std::size_t numBytes);
+    	void deallocate(void* p, std::size_t size);
+
+    private:
+    	std::vector<FixedAllocator> pool_;
+    	FixedAllocator* lastAlloc_;
+    	FixedAllocator* lastDealloc_;
+    }; // class SmallObjectAllocator
 
     /**
      * @brief SmallObject offers encapsulated allocation services for 

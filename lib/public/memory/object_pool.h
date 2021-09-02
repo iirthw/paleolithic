@@ -34,7 +34,12 @@ namespace memory
      * forwards the request to the new Chunk.
      */
     class FixedAllocator {
+    	struct Chunk; // forward declaration.
+
     public:
+    	/**
+    	 * Allocate a block of the size FixedAllocator was configured in ctor.
+    	 */
     	void* allocate() {
     		if (allocChunk_ == 0 || allocChunk_->blocksAvailable_ == 0) {
     			// No available memory in allocChunk_
@@ -62,6 +67,24 @@ namespace memory
     			}
     		}
     	} // allocate
+
+    	/**
+    	 * Deallocate a block.
+    	 */
+    	void deallocate(void* p) {
+    		// provide impl.
+    	}
+
+    	private:
+	    	std::size_t blockSize_;
+	    	unsigned char numBlocks_;
+	    	typedef std::vector<Chunk> Chunks;
+	    	// FixedAllocator aggregates a vector of chunks.
+	    	Chunks chunks_;
+	    	// Pointer to the last chunk that was used for allocation.
+	    	Chunk* allocChunk_;
+	    	// Pointer to the last chunk used for deallocation.
+	    	Chunk* deallocChunk_;
 
     private:
 
@@ -149,17 +172,6 @@ namespace memory
 	    	unsigned char* data_;
 	    	unsigned char firstAvailableBlock_, blocksAvailable_;
     	}; // struct Chunk
-
-    private:
-    	std::size_t blockSize_;
-    	unsigned char numBlocks_;
-    	typedef std::vector<Chunk> Chunks;
-    	// FixedAllocator aggregates a vector of chunks.
-    	Chunks chunks_;
-    	// Pointer to the last chunk that was used for allocation.
-    	Chunk* allocChunk_;
-    	// Pointer to the last chunk used for deallocation.
-    	Chunk* deallocChunk_;
     }; // class FixedAllocator
 
 

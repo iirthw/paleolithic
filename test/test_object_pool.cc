@@ -31,30 +31,22 @@ TEST_F(TestObjectPool, test_dtor)
 
 TEST_F(TestObjectPool, test_getObject_int)
 {
-    memory::ObjectPool<int> pool;
-    auto object = pool.getObject();
-    ASSERT_TRUE(object != nullptr);
+    // TODO: provide impl
 }
 
 TEST_F(TestObjectPool, test_getObject_float)
 {
-    memory::ObjectPool<float> pool;
-    auto object = pool.getObject();
-    ASSERT_TRUE(object != nullptr);
+    // TODO: provide impl
 }
 
 TEST_F(TestObjectPool, test_getObject_char)
 {
-    memory::ObjectPool<char> pool;
-    auto object = pool.getObject();
-    ASSERT_TRUE(object != nullptr);
+    // TODO: provide impl
 }
 
 TEST_F(TestObjectPool, test_getObject_pod)
 {
-    memory::ObjectPool<TestStruct> pool;
-    auto object = pool.getObject();
-    ASSERT_TRUE(object != nullptr);
+    // TODO: provide impl
 }
 
 TEST_F(TestObjectPool, target_available)
@@ -68,8 +60,7 @@ TEST_F(TestObjectPool, target_available)
 
 TEST_F(TestObjectPool, test_empty)
 {
-    memory::ObjectPool<TestStruct> pool;
-    ASSERT_FALSE(pool.empty());
+    // TODO: provide impl
 }
 
 TEST_F(TestObjectPool, test_relaseObject)

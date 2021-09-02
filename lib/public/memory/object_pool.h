@@ -37,6 +37,10 @@ namespace memory
     	struct Chunk; // forward declaration.
 
     public:
+    	FixedAllocator(std::size_t blockSize, unsigned char numBlocks)
+    	: blockSize_(blockSize), numBlocks_(numBlocks)
+    	{}
+
     	/**
     	 * Allocate a block of the size FixedAllocator was configured in ctor.
     	 */

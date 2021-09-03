@@ -24,63 +24,71 @@ TEST_F(TestObjectPool, test_ctor_noarg)
 TEST_F(TestObjectPool, test_dtor)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_getObject_int)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_getObject_float)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_getObject_char)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_getObject_pod)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, target_available)
 {
-    // FIXME: fix the test.
-//    memory::ObjectPool<TestStruct> pool;
-//    const auto available = pool.available();
-//    const auto capacity = pool.capacity();
-//    ASSERT_EQ(capacity, available);
+    // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_empty)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_relaseObject)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_noDefaultConstructible)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_noAvailable)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_releaseNull)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }
 
 TEST_F(TestObjectPool, test_releaseForeignObject)
 {
     // TODO: provide impl
+    ASSERT_TRUE(false);
 }

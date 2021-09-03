@@ -65,7 +65,7 @@ namespace memory
     				}
 
     				assert(allocChunk_ != 0);
-    				assert(allocChunk_->blocksAvailable > 0);
+    				assert(allocChunk_->blocksAvailable_ > 0);
 
     				return allocChunk_->allocate(blockSize_);
     			}
@@ -131,7 +131,7 @@ namespace memory
 	    	// Allocate memory for a block inside chunk.
 	    	// (Time complexity - linear)
 	    	void* allocate(std::size_t blockSize) {
-	    		assert(blockSize > 0;)
+                assert(blockSize > 0);
 	    		// Implementation idea: fetch the block indexed 
 	    		// by firstAvailableBlock_ and adjust firstAvailableBlock_ 
 	    		// to refer to the next available block.
@@ -141,14 +141,14 @@ namespace memory
 	    		unsigned char* result = 
 	    			data_ + (firstAvailableBlock_ * blockSize);
 	    		firstAvailableBlock_ = *result;
-	    		--blocksAvailable;
+	    		--blocksAvailable_;
 	    		return result;
 	    	} // allocate
 
 	    	// Release memory of a block insied chunk.
 	    	// If the wrong pointer is passed - behaviour is undefined.
 	    	// (Time complexity - linear).
-	    	void deallocate(void* block, std::size blockSize) {
+	    	void deallocate(void* block, std::size_t blockSize) {
 	    		assert(blockSize > 0);
 	    		assert(block >= data_);
 
@@ -206,7 +206,7 @@ namespace memory
     class SmallObject {
     public:
     	static void* operator new(std::size_t size);
-    	static void* operator delete(void* p, std::size_t size);
+    	static void operator delete(void* p, std::size_t size);
     	virtual ~SmallObject() {}
     }; // class SmallObject
 } // namespace memory

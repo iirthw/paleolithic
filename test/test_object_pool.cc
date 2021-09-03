@@ -23,10 +23,7 @@ TEST_F(TestObjectPool, test_ctor_noarg)
 
 TEST_F(TestObjectPool, test_dtor)
 {
-    {
-        memory::ObjectPool<TestStruct> pool;
-    } // exercise dtor
-    ASSERT_TRUE(true);
+    // TODO: provide impl
 }
 
 TEST_F(TestObjectPool, test_getObject_int)

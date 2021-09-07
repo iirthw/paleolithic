@@ -14,11 +14,14 @@ struct TestStruct
     TestStruct(int id = 0, float score = 0.0f) : id(id), score(score) {}
 }; // struct TestStruct
 
-TEST_F(TestObjectPool, test_ctor_noarg)
+TEST_F(TestObjectPool, test_FixedAllocator_ctor)
 {
-    // FIXME: fix the test.
-//    memory::ObjectPool<TestStruct> pool;
-//    ASSERT_EQ(pool.capacity(), 1000);
+    {
+        const std::size_t blockSize = 1;
+        const unsigned char numBlocks = 255;
+        memory::FixedAllocator fixedAllocator(blockSize, numBlocks);
+    }
+    ASSERT_TRUE(true);
 }
 
 TEST_F(TestObjectPool, test_dtor)

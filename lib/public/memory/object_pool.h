@@ -37,8 +37,9 @@ namespace memory
     	struct Chunk; // forward declaration.
 
     public:
-    	FixedAllocator(std::size_t blockSize, unsigned char numBlocks)
-    	: blockSize_(blockSize), numBlocks_(numBlocks)
+        FixedAllocator(std::size_t blockSize, unsigned char numBlocks)
+            : blockSize_(blockSize), numBlocks_(numBlocks)
+            , allocChunk_(nullptr), deallocChunk_(nullptr)
     	{}
 
     	/**

@@ -77,7 +77,9 @@ namespace memory
     	 * Deallocate a block.
     	 */
     	void deallocate(void* p) {
-    		// provide impl.
+            for (auto chunk : chunks_) {
+                chunk.release();
+            }
     	}
 
     	private:

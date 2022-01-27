@@ -2,6 +2,7 @@ set(
     HEADER_FILES
     public/bitmanip/bitmanip.h
     public/dyn_prog/fibo.h
+    public/logging/logger.h
     public/memory/object_pool.h
     public/thread/threadpool.h
     )
@@ -10,6 +11,7 @@ set(
     IMPL_FILES
     impl/bitmanip/bitmanip.cc
     impl/dyn_prog/fibo.cc
+    impl/logging/logger.cc
     impl/thread/threadpool.cc
     )
 set(SOURCE_FILES ${HEADER_FILES} ${IMPL_FILES})

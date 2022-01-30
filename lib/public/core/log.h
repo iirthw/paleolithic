@@ -1,6 +1,11 @@
+#include <ostream>
+
 namespace core
 {
-    enum class LogLevel : uint8_t
+    class Logger;
+    extern Logger log;
+
+    enum class LogLevel : unsigned char
     {
         INFO = 0,
         DEBUG,
@@ -9,6 +14,12 @@ namespace core
 
     class Logger
     {
+    public:
+        static Logger& getInstance();
 
+        Logger(std::ostream& os = std::cout);
+
+        Logger(const Logger&)           = delete;
+        void operator= (const Logger&)  = delete;    
     }; // class Logger
 } // namespace core

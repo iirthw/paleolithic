@@ -2,6 +2,7 @@ set (HEADER_FILES
     public/bitmanip/bitmanip.h
     public/core/log.h
     public/dyn_prog/fibo.h    
+    public/graph/graph.h
     public/memory/object_pool.h
     public/thread/threadpool.h
 )

@@ -11,6 +11,7 @@ set (IMPL_FILES
     impl/bitmanip/bitmanip.cc
     impl/core/log.cc
     impl/dyn_prog/fibo.cc
+    impl/graph/graph.cpp
     impl/thread/threadpool.cc
 )
 

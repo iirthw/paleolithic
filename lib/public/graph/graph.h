@@ -2,6 +2,9 @@
 
 namespace graph
 {
+    // ---------------------------------------------------------------------
+    // Vertex
+    // ---------------------------------------------------------------------
     template <typename VertexIndex, typename Data>
     class Vertex
     {
@@ -19,6 +22,9 @@ namespace graph
         Data m_data;
     }; // class Vertex
 
+    // ---------------------------------------------------------------------
+    // Edge
+    // ---------------------------------------------------------------------
     template <typename VertexIndex, typename EdgeAttribute>
     struct Edge
     {
@@ -26,7 +32,10 @@ namespace graph
         VertexIndex end;
         EdgeAttribute attrib;
     }; // struct Edge
-
+ 
+    // ---------------------------------------------------------------------
+    // AdjacencyMatrix
+    // ---------------------------------------------------------------------
     template <typename VertexIndex, typename EdgeAttribute, typename Directed>
     class AdjacencyMatrix
     {
@@ -38,7 +47,9 @@ namespace graph
         bool exists(VertexIndex a, VertexIndex b) const;
     }; // class AdjacencyMatrix
 
-
+    // ---------------------------------------------------------------------
+    // Graph
+    // ---------------------------------------------------------------------
     template <typename Vertex, typename VertexIndex,
         typename EdgeAttribute,  typename Directed>
     class Graph
